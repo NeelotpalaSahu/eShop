@@ -29,8 +29,8 @@ public class Customer implements Serializable{
     private String password;
 
     private boolean enabled;
-
-   
+    
+       
     public int getCustomerId() {
         return customerId;
     }
@@ -86,6 +86,8 @@ public class Customer implements Serializable{
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
+
+	
 
 /*	public String getSex() {
 		return sex;

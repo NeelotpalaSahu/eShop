@@ -35,6 +35,7 @@ public class Product implements Serializable {
 	}
 
 	private String brand;
+	private String image;
 	
 	public int getProductId() {
 		return productId;
@@ -74,6 +75,14 @@ public class Product implements Serializable {
 
 	public void setStock(int quantity) {
 		this.stock = quantity;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 	
