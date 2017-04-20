@@ -1,8 +1,9 @@
 package com.demoproject.model;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 
 @Entity
@@ -14,8 +15,9 @@ public class Users{
     private String username;
     private String password;
     private boolean enabled;
+    
     private int customerId;
-
+ 
     public int getUsersId() {
         return usersId;
     }
@@ -55,4 +57,5 @@ public class Users{
     public void setCustomerId(int customerId) {
         this.customerId = customerId;
     }
+ 
 }

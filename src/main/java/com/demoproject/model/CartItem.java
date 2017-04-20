@@ -8,33 +8,35 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
 
 @Entity
+@Component
+@Table(name="cartItem")
 public class CartItem implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private int cartItemId;	
+	private int cartId;	
 	
-	private int quantity;
+	private int quantity;	
 	
-	private double totalPrice;
+	private double totalPrice;	
 	
-	@ManyToOne
-	@JoinColumn(name="productId")
+	private int productId;
 	
-	private Product product;
-	
-	@ManyToOne
-	@JoinColumn(name="cart_id")
-	private Cart cart;
-	
-	public int getId() {
-		return id;
+	//private Product product;
+
+		
+	public int getCartItemId() {
+		return cartItemId;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setCartItemId(int cartItemId) {
+		this.cartItemId = cartItemId;
 	}
 	public int getQuantity() {
 		return quantity;
@@ -48,17 +50,24 @@ public class CartItem implements Serializable {
 	public void setTotalPrice(double totalPrice) {
 		this.totalPrice = totalPrice;
 	}
-	public Product getProduct() {
+	/*public Product getProduct() {
 		return product;
 	}
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-	public Cart getCart() {
-		return cart;
+	*/
+	public int getProductId() {
+		return productId;
 	}
-	public void setCart(Cart cart) {
-		this.cart = cart;
+	public void setProductId(int productId) {
+		this.productId = productId;
+	}
+	public int getCartId() {
+		return cartId;
+	}
+	public void setCartId(int cartId) {
+		this.cartId = cartId;
 	}
 
 }

@@ -36,12 +36,23 @@
 	<jsp:include page="editProduct.jsp"></jsp:include>
 </c:if>
 
-<c:if test="${productDetails}">
-	<jsp:include page="productDetails.jsp"></jsp:include>
+<c:if test="${productDescription}">
+	<jsp:include page="productDescription.jsp"></jsp:include>
 </c:if>
 
-<c:if test="${myCart}">
+<c:if test="${cart}">
 	<jsp:include page="cart.jsp"></jsp:include>
 </c:if>
 
+<c:if test="${payment}">
+	<jsp:include page="paymentDetails.jsp"></jsp:include>
+</c:if>
+
+<c:if test="${mail}">
+	<jsp:include page="mail.jsp"></jsp:include>
+</c:if>
+
+<c:if test="${pagination}">
+	<jsp:include page="pagination.jsp"></jsp:include>
+</c:if>
 <%@include file="/WEB-INF/views/template/footer.jsp" %>

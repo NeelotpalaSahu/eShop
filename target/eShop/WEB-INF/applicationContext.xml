@@ -18,14 +18,14 @@
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
-                <prop key="hibernate.hbm2ddl.auto">update</prop> 
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.format_sql">true</prop>
             </props>
         </property>
         <property name="packagesToScan">
             <list>
-                <value>com.niit</value>
+                <value>com.demoproject</value>
             </list>
         </property>
     </bean>
@@ -36,16 +36,25 @@
 
        
     <security:http auto-config="true">
-        <security:intercept-url pattern="/admin" access="ROLE_ADMIN" />
-        <security:intercept-url pattern="/customer/**" access="ROLE_USER" />
+    <!--  <security:csrf disabled="true"/>
+ <security:intercept-url pattern="/index*/**" access="permitAll"/>
+ <security:intercept-url pattern="/home" access="permitAll"/>
+ <security:intercept-url pattern="/login" access="permitAll"/>
+ <security:intercept-url pattern="/all/**" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')"/>
+ <security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
+ <security:intercept-url pattern="/cart/**" access="hasRole('ROLE_USER')"/> -->
+ 
         <security:form-login
             login-page="/login"
             default-target-url="/"
             authentication-failure-url="/login?error"
+            login-processing-url="/j_spring_security_check"
             username-parameter="username"
             password-parameter="password" />
         <security:logout
-            logout-success-url="/login?logout" />
+            logout-success-url="/login?logout" 
+            logout-url="/j_spring_security_logout"/>
+            
     </security:http>
 
     <security:authentication-manager>

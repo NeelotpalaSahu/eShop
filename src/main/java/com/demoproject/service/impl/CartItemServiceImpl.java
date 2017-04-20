@@ -1,15 +1,16 @@
 package com.demoproject.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.demoproject.dao.CartItemDao;
-import com.demoproject.model.Cart;
 import com.demoproject.model.CartItem;
 import com.demoproject.service.CartItemService;
 
 @Service
-public class CartItemServiceImpl implements CartItemService {
+public class CartItemServiceImpl implements CartItemService{
 
 	@Autowired
 	private CartItemDao cartItemDao;
@@ -18,17 +19,27 @@ public class CartItemServiceImpl implements CartItemService {
 		cartItemDao.addCartItem(cartItem);
 	}
 
-	public CartItem getCartitemById(int id) {
-		return cartItemDao.getCartitemById(id);
-	}
-
 	public void deleteCartItem(CartItem cartItem) {
 		cartItemDao.deleteCartItem(cartItem);
+	}
+
+	public List<CartItem> getMyCartItems(int cartID) {
+		return cartItemDao.getMyCartItems(cartID);
+	}
+
+	public void deleteAllCartItems(int cartID) {
+		// TODO Auto-generated method stub
 		
 	}
 
-	public void deleteAllCartitem(Cart cart) {
-		cartItemDao.deleteAllCartitem(cart);
+	public void updateCartItem(CartItem cartItem) {
+		cartItemDao.updateCartItem(cartItem);
+		
+		
+	}
+
+	public CartItem getCartItemByProductId(int productID) {
+		return cartItemDao.getCartItemByProductId(productID);
 	}
 
 }

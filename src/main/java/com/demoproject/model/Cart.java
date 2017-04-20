@@ -1,5 +1,6 @@
 package com.demoproject.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -12,36 +13,51 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 @Entity
+@Component
 @Table(name="cart")
-public class Cart {
+public class Cart implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private int cartId;
 	
-	@OneToOne
-	private Customer customer;
+	private int customerId;
 	
-	@OneToMany(mappedBy="cart",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
-	private List<CartItem> cartItem;
+	private int itemsInCart;
+	
+	private double grandTotal;
+	
+	
+	public int getCartId() {
+		return cartId;
+	}
+	public void setCartId(int cartId) {
+		this.cartId = cartId;
+	}
 
-	public int getId() {
-		return id;
+	public int getCustomerId() {
+		return customerId;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
 	}
-	public Customer getCustomer() {
-		return customer;
+	public int getItemsInCart() {
+		return itemsInCart;
 	}
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
+	public void setItemsInCart(int itemsInCart) {
+		this.itemsInCart = itemsInCart;
 	}
-	public List<CartItem> getCartItem() {
-		return cartItem;
+	public double getGrandTotal() {
+		return grandTotal;
 	}
-	public void setCartItem(List<CartItem> cartItem) {
-		this.cartItem = cartItem;
+	public void setGrandTotal(double grandTotal) {
+		this.grandTotal = grandTotal;
 	}
 
 }

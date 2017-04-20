@@ -1,12 +1,21 @@
 package com.demoproject.dao;
 
-import com.demoproject.model.Cart;
+import java.util.List;
+
 import com.demoproject.model.CartItem;
 
 public interface CartItemDao {
+	
+	 void addCartItem(CartItem cartItem);
+	
+	 CartItem getCartItemByProductId(int productID);
+	 
+	 void deleteCartItem(CartItem cartItem);
+	
+	 List<CartItem> getMyCartItems(int cartID);
+	
+	 void deleteAllCartItems(int cartID);
+	 
+	 void updateCartItem(CartItem cartItem);
 
-	void addCartItem(CartItem cartItem);
-	CartItem getCartitemById(int id);
-	void deleteCartItem(CartItem cartItem);
-	void deleteAllCartitem(Cart cart);
 }

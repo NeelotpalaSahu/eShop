@@ -27,10 +27,11 @@ public class Customer implements Serializable{
 
     @NotEmpty (message = "The customer password must not be null.")
     private String password;
-
     private boolean enabled;
-
-   
+ 
+    private int cartId;
+    
+       
     public int getCustomerId() {
         return customerId;
     }
@@ -86,6 +87,15 @@ public class Customer implements Serializable{
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
+
+	public int getCartId() {
+		return cartId;
+	}
+
+	public void setCartId(int cartId) {
+		this.cartId = cartId;
+	}
+
 
 /*	public String getSex() {
 		return sex;

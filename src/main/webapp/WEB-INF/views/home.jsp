@@ -1,5 +1,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<style>
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+</style>
+
 <div class="container">
 	 <div class="row">
 		<!-- Carousel -->
@@ -14,15 +21,15 @@
 			<div class="carousel-inner">
 			
 			    <div class="item active">
-			    	<img src="resources/images/5.jpg" alt="First slide">
+			    	<img src="resources/images/home1.jpg" alt="First slide">
 			    </div>
 			    
 			    <div class="item">
-			    	<img src="resources/images/6.jpg" alt="Second slide">        
+			    	<img src="resources/images/home2.jpg" alt="Second slide">        
 			    </div>
 			    
 			    <div class="item">
-			    	<img src="resources/images/7.jpg" alt="Third slide">
+			    	<img src="resources/images/home3.jpg" alt="Third slide">
 			    </div>
 			    
 			</div>
@@ -39,36 +46,64 @@
 </div>
 
 <br><br>
+<br><br>
 
 <div class="container-fluid cards-row">
 <div class="container">
-<div class="row">
+<div class="row" id="mySearch">
 
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-       <img class="team-pic" src="resources/images/10.jpg">
-      <div class="caption">
-       <center> <h4><a href="<c:url value="/getAllProducts" /> ">Western Wear</a></h4> </center>
+  <div class="col-sm-4 col-md-4 second">						
+    <div class="panel-heading">
+       <img class="team-pic" src="resources/images/ALL ABOUT YOU.png">
       </div>
-    </div>
+      <div class="caption" id="fourth">
+       <center> <h5><a href="<c:url value="/userProduct" /> ">ALL ABOUT YOU</a></h5> </center>
+      </div>
   </div>
   
-    <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-        <img class="team-pic" src="resources/images/13.jpg">
-      <div class="caption">
-        <center> <h4><a href="<c:url value="/getAllProducts" /> ">Ethnic Wear</a></h4> </center>
+   <div class="col-sm-4 col-md-4 second">						
+    <div class="panel-heading">
+       <img class="team-pic" src="resources/images/AND.jpg">
       </div>
-    </div>
+      <div class="caption" id="fourth">
+       <center> <h5><a href="<c:url value="/userProduct" /> ">AND</a></h5> </center>
+      </div>
   </div>
   
-    <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-       <img class="team-pic" src="resources/images/12.jpg">
-      <div class="caption">
-        <center> <h4><a href="<c:url value="/getAllProducts" /> ">Fashion</a></h4> </center>
+    <div class="col-sm-4 col-md-4 second">						
+    <div class="panel-heading">
+       <img class="team-pic" src="resources/images/H&M.png">
       </div>
-    </div>
+      <div class="caption" id="fourth">
+       <center> <h5><a href="<c:url value="/userProduct" /> ">H&M</a></h5> </center>
+      </div>
+  </div>
+  
+   <div class="col-sm-4 col-md-4 second">						
+    <div class="panel-heading">
+       <img class="team-pic" src="resources/images/MANGO.png">
+      </div>
+      <div class="caption" id="fourth">
+       <center> <h5><a href="<c:url value="/userProduct" /> ">MANGO</a></h5> </center>
+      </div>
+  </div>
+  
+   <div class="col-sm-4 col-md-4 second">						
+    <div class="panel-heading">
+       <img class="team-pic" src="resources/images/VERO MODA.jpg">
+      </div>
+      <div class="caption" id="fourth">
+       <center> <h5><a href="<c:url value="/userProduct" /> ">VERO MODA</a></h5> </center>
+      </div>
+  </div>
+  
+   <div class="col-sm-4 col-md-4 second">						
+    <div class="panel-heading">
+       <img class="team-pic" src="resources/images/W.png">
+      </div>
+      <div class="caption" id="fourth">
+       <center> <h5><a href="<c:url value="/userProduct" /> ">W</a></h5> </center>
+      </div>
   </div>
   
 </div>

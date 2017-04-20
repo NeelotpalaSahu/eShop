@@ -4,5 +4,10 @@ import com.demoproject.model.Cart;
 
 public interface CartDao {
 
-	Cart getCartById(int id);
+    void updateCart(Cart cart);
+	 
+	Cart getCart(int customerID);
+	
+	
+	
 }

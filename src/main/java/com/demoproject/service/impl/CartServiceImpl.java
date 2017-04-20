@@ -8,14 +8,18 @@ import com.demoproject.model.Cart;
 import com.demoproject.service.CartService;
 
 @Service
-public class CartServiceImpl implements CartService {
-	
-	@Autowired
-	private CartDao cartDao;
+public class CartServiceImpl implements CartService{
 
-	public Cart getCartById(int id) {
+	@Autowired 
+	private CartDao cartDao;
+	
+	public void updateCart(Cart cart) {
+		cartDao.updateCart(cart);
 		
-		return cartDao.getCartById(id);
+	}
+
+	public Cart getCart(int customerID) {
+		return cartDao.getCart(customerID);
 	}
 
 }

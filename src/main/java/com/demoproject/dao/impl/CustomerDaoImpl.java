@@ -2,6 +2,7 @@ package com.demoproject.dao.impl;
 
 import com.demoproject.dao.CustomerDao;
 import com.demoproject.model.Authorities;
+import com.demoproject.model.Cart;
 import com.demoproject.model.Customer;
 import com.demoproject.model.Users;
 import org.hibernate.Query;
@@ -22,7 +23,8 @@ public class CustomerDaoImpl implements CustomerDao{
 
     public void addCustomer(Customer customer) {
         Session session = sessionFactory.getCurrentSession();
-
+        
+        customer.setCartId(100);
       
         session.saveOrUpdate(customer);
        
@@ -38,6 +40,13 @@ public class CustomerDaoImpl implements CustomerDao{
         session.saveOrUpdate(newUser);
         session.saveOrUpdate(newAuthority);
 
+        Cart cart =new Cart();
+        cart.setCustomerId(customer.getCustomerId());
+        session.save(cart);
+        
+        customer.setCartId(cart.getCartId());
+        session.update(customer);
+       
        
         session.flush();
     }

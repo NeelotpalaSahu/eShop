@@ -48,7 +48,7 @@
     <div class="thumbnail">
        <img class="team-pic" src="resources/images/10.jpg">
       <div class="caption">
-       <center> <h4><a href="<c:url value="/" /> ">Western Wear</a></h4> </center>
+       <center> <h4><a href="<c:url value="/getAllProducts" /> ">Western Wear</a></h4> </center>
       </div>
     </div>
   </div>
@@ -57,7 +57,7 @@
     <div class="thumbnail">
         <img class="team-pic" src="resources/images/13.jpg">
       <div class="caption">
-        <center> <h4><a href="<c:url value="/" /> ">Ethnic Wear</a></h4> </center>
+        <center> <h4><a href="<c:url value="/getAllProducts" /> ">Ethnic Wear</a></h4> </center>
       </div>
     </div>
   </div>
@@ -66,7 +66,7 @@
     <div class="thumbnail">
        <img class="team-pic" src="resources/images/12.jpg">
       <div class="caption">
-        <center> <h4><a href="<c:url value="/" /> ">Fashion</a></h4> </center>
+        <center> <h4><a href="<c:url value="/getAllProducts" /> ">Fashion</a></h4> </center>
       </div>
     </div>
   </div>

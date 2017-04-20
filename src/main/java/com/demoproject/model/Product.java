@@ -25,6 +25,9 @@ public class Product implements Serializable {
 	private double price;	
 	@Min(value=2)
 	private int stock;	
+	private String brand;
+	private String image;
+	
 	
 	public String getBrand() {
 		return brand;
@@ -33,8 +36,6 @@ public class Product implements Serializable {
 	public void setBrand(String brand) {
 		this.brand = brand;
 	}
-
-	private String brand;
 	
 	public int getProductId() {
 		return productId;
@@ -75,6 +76,15 @@ public class Product implements Serializable {
 	public void setStock(int quantity) {
 		this.stock = quantity;
 	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
 
 	
 }

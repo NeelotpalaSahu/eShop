@@ -3,6 +3,9 @@ package com.demoproject.service;
 import com.demoproject.model.Cart;
 
 public interface CartService {
-	Cart getCartById(int id);
 
+	 void updateCart(Cart cart);
+	 
+		Cart getCart(int customerID);
+		
 }
