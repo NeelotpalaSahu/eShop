@@ -396,7 +396,7 @@ function msg(){
          <li><a href="<c:url value="/login" /> "><span class="glyphicon glyphicon-log-in"></span>Log in</a></li>
        </c:if>      
        <c:if test="${pageContext.request.userPrincipal.name !=null }">
-	       <li><a href="<c:url value="/cart"></c:url>"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
+	       <li><a href="<c:url value="/cart"></c:url>"><span class="glyphicon glyphicon-shopping-cart"></span>Cart ${totalItem}</a></li>
          <li><a href="<c:url value="/j_spring_security_logout"></c:url>"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
 	   </c:if>
    </ul>

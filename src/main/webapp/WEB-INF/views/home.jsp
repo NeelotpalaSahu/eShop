@@ -52,59 +52,56 @@ img {
 <div class="container">
 <div class="row" id="mySearch">
 
+<a href="<c:url value="/userProduct/All About You" /> ">
   <div class="col-sm-4 col-md-4 second">						
     <div class="panel-heading">
        <img class="team-pic" src="resources/images/ALL ABOUT YOU.png">
       </div>
-      <div class="caption" id="fourth">
+     <%--  <div class="caption" id="fourth">
        <center> <h5><a href="<c:url value="/userProduct" /> ">ALL ABOUT YOU</a></h5> </center>
-      </div>
+      </div> --%>
   </div>
+  </a>
   
+  <a href="<c:url value="/userProduct/AND" /> ">
    <div class="col-sm-4 col-md-4 second">						
     <div class="panel-heading">
        <img class="team-pic" src="resources/images/AND.jpg">
       </div>
-      <div class="caption" id="fourth">
-       <center> <h5><a href="<c:url value="/userProduct" /> ">AND</a></h5> </center>
-      </div>
   </div>
+  </a>
   
+  <a href="<c:url value="/userProduct/H&M" /> ">
     <div class="col-sm-4 col-md-4 second">						
     <div class="panel-heading">
        <img class="team-pic" src="resources/images/H&M.png">
       </div>
-      <div class="caption" id="fourth">
-       <center> <h5><a href="<c:url value="/userProduct" /> ">H&M</a></h5> </center>
-      </div>
   </div>
+  </a>
   
+  <a href="<c:url value="/userProduct/Mango" /> ">
    <div class="col-sm-4 col-md-4 second">						
     <div class="panel-heading">
        <img class="team-pic" src="resources/images/MANGO.png">
       </div>
-      <div class="caption" id="fourth">
-       <center> <h5><a href="<c:url value="/userProduct" /> ">MANGO</a></h5> </center>
-      </div>
   </div>
+  </a>
   
+  <a href="<c:url value="/userProduct/Vero Moda" /> ">
    <div class="col-sm-4 col-md-4 second">						
     <div class="panel-heading">
        <img class="team-pic" src="resources/images/VERO MODA.jpg">
       </div>
-      <div class="caption" id="fourth">
-       <center> <h5><a href="<c:url value="/userProduct" /> ">VERO MODA</a></h5> </center>
-      </div>
   </div>
+  </a>
   
+  <a href="<c:url value="/userProduct/W" /> ">
    <div class="col-sm-4 col-md-4 second">						
     <div class="panel-heading">
        <img class="team-pic" src="resources/images/W.png">
       </div>
-      <div class="caption" id="fourth">
-       <center> <h5><a href="<c:url value="/userProduct" /> ">W</a></h5> </center>
-      </div>
   </div>
+  </a>
   
 </div>
 

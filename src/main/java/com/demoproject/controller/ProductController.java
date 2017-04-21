@@ -61,6 +61,22 @@ public class ProductController {
 		return "index";
 	}
 	
+	@RequestMapping(value="/userProduct/{brand}", method=RequestMethod.GET)
+	public String userProductsByBrand(Model m, @PathVariable("brand") String brand) {
+		System.out.println("going to userProduct page by Brand" + brand);
+		
+		List<Product> allProd =productService.getAllProducts();
+		
+		for (Product product : allProd) {
+			System.out.println("\nProduct name = "+product.getProductName());
+		}
+		
+		m.addAttribute("allProd", allProd);
+		m.addAttribute("userProduct", "true");
+		m.addAttribute("brand", brand);
+		return "index";
+	}
+	
 	
 	@RequestMapping("/admin/addProduct")
 	public String addProduct(Model m) {

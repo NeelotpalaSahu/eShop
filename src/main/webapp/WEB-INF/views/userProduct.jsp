@@ -1,8 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="container">
-
-<input type="text" id="myInput" onkeyup="myFunction()"  placeholder="Search products by name and brand" title="Type in a name">
+<input type="text" id="myInput" onkeyup="myFunction()" onfocus="myFunction()" value="${brand}" placeholder="Search products by name and brand" title="Type in a name" autofocus>
 
   <button onclick="sortByBrand()">Sort By Brand</button>
   

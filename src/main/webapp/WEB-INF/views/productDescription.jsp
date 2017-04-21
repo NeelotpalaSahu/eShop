@@ -47,8 +47,8 @@
                     </div>                
            
                     <div class="section" style="padding-bottom:20px;">
-                        <a class="btn btn-success" href="<c:url value="/cart/addToCart/{p.id}"/>" >
-                        <span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true">  Add to Cart  </span></a> 
+                       <a class="btn btn-primary" onclick="msg()" href="<c:url value="/addToCart/${p.productId}"/> ">
+								  <span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true">  Add to Cart  </span></a> 
                     </div>                                        
           </div>                              
 	</div>
