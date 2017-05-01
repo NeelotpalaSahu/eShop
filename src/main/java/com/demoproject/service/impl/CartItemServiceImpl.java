@@ -28,7 +28,7 @@ public class CartItemServiceImpl implements CartItemService{
 	}
 
 	public void deleteAllCartItems(int cartID) {
-		// TODO Auto-generated method stub
+		cartItemDao.deleteAllCartItems(cartID);
 		
 	}
 
@@ -40,6 +40,11 @@ public class CartItemServiceImpl implements CartItemService{
 
 	public CartItem getCartItemByProductId(int productID) {
 		return cartItemDao.getCartItemByProductId(productID);
+	}
+
+	public int getTotalProducts(int cartID) {
+		
+		return cartItemDao.getTotalProducts(cartID);
 	}
 
 }

@@ -8,6 +8,6 @@ public interface CartDao {
 	 
 	Cart getCart(int customerID);
 	
-	
+	void deleteCartById(int cartId);
 	
 }

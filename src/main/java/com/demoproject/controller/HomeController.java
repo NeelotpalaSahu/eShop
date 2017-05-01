@@ -14,6 +14,8 @@ import javax.mail.internet.MimeMessage;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.web.bind.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,26 +24,44 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.demoproject.model.CartItem;
 import com.demoproject.model.Customer;
+import com.demoproject.service.CartItemService;
 import com.demoproject.service.CustomerService;
 
 
 @Controller
 public class HomeController {
-
+	
+	  @Autowired
+	    private CustomerService customerService;
+	  
+	  @Autowired
+	  private CartItemService cartItemService;
+	  
+	  Customer customer;
+	
+	  public static int count=0;
+	  
 	@RequestMapping ("/")
-	public String slash(Model m){
+	public String slash(Model m,@AuthenticationPrincipal User activeUser){
+		try{
+			System.out.println("count home1");
+			if(activeUser!=null){
+				customer=customerService.getCustomerByUsername(activeUser.getUsername());
+				count=cartItemService.getTotalProducts(customer.getCartId());
+				m.addAttribute("totalproducts",count);
+				
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
 		System.out.println("going on index page");
 	     m.addAttribute("getHome", "true");
 		return "index";
 	}
 	
-	/*@RequestMapping ("/login")
-	public String login(Model m){
-		System.out.println("going on index page");
-	     m.addAttribute("getLogin", "true");
-		return "index";
-	}*/
 	@RequestMapping ("/aboutUs")
 	public String aboutUs(Model m){
 		System.out.println("going on index page");
@@ -54,17 +74,7 @@ public class HomeController {
 		m.addAttribute("getContactUs", "true");
 		return "index";
 	}
-	@RequestMapping ("/register")
-	public String register(Model m){
-		System.out.println("going on index page");
-		Customer customer = new Customer();
-	       
-        m.addAttribute("customer", customer);
-		m.addAttribute("getRegister","true");
-		return "index";
-	}
-    
-   
+	
     @RequestMapping("/login")
     public String login(@RequestParam(value="error", required = false) String error, @RequestParam(value="logout",
             required = false) String logout, Model model) {
@@ -79,10 +89,15 @@ public class HomeController {
         return "index";
     }
     
-    @Autowired
-    private CustomerService customerService;
-
-   
+	@RequestMapping ("/register")
+	public String register(Model m){
+		System.out.println("going on index page");
+		Customer customer = new Customer();
+	       
+        m.addAttribute("customer", customer);
+		m.addAttribute("getRegister","true");
+		return "index";
+	}  
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String registerCustomerPost(@Valid @ModelAttribute("customer") Customer customer, BindingResult result,
@@ -186,5 +201,9 @@ public class HomeController {
 	    model.addAttribute("mail", true);
 	    return "index";
 	}
-    
+	    public static int getTotalProducts(){
+	    	return count;
+	    }
+	    
+		
 }

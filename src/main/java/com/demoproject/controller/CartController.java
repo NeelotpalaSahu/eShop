@@ -8,11 +8,14 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.bind.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.demoproject.service.CartService;
 import com.demoproject.model.Cart;
 import com.demoproject.model.CartItem;
+import com.demoproject.controller.HomeController;
 import com.demoproject.model.Customer;
 import com.demoproject.model.Product;
 import com.demoproject.service.CartItemService;
@@ -48,8 +51,9 @@ public class CartController {
 			List<CartItem> list = cartItemService.getMyCartItems(customer.getCartId());
 
 			if (list.isEmpty()) {
-				model.addAttribute("msg", "No item found in your cart");
+				model.addAttribute("msg", "No item found in the cart1");
 				System.out.println("Going to cart page");
+				model.addAttribute("hide", true);
 				model.addAttribute("cart", true);
 				return "index";
 			} else {
@@ -72,8 +76,10 @@ public class CartController {
 
 				}
 
+				
+				
 				System.out.println("subtotal = " + subTotal);
-				cart.setGrandTotal(subTotal + 10.0); // subtotal + tax
+				cart.setGrandTotal(subTotal + 10.0); // subtotal + Estimated shipping
 				cartService.updateCart(cart);
 				System.out.println("grand total  = " + cart.getGrandTotal());
 
@@ -87,25 +93,37 @@ public class CartController {
 				
 				System.out.println("Going to cart page");
 				model.addAttribute("cart", true);
+				model.addAttribute("totalproducts",HomeController.count);
 				return "index";
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			System.out.println("Going to cart page");
-			model.addAttribute("msg", "No item found in your cart");
+			model.addAttribute("msg", "No item found in your cart2");
 			model.addAttribute("show", false);
+			model.addAttribute("hide", true);
 			model.addAttribute("cart", true);
 			return "index";
 		}
 	}
 	
-	@RequestMapping("/cart/paymentDetails")
-	public String checkout(Model model)
-	{
-		model.addAttribute("msg", "Wait for the demo on web-flow");
-		model.addAttribute("payment",true);
-		return "index";
+	
+	@RequestMapping(value = "/deleteCart", method = RequestMethod.GET)
+	public String deleteAllCartItemsById( @AuthenticationPrincipal User activeUser) {
+      
+		//get username of current logged in user
+		 //then get customer object by the username
+		 //then get the cartID from the customer object
+		 //then pass cartID to deleteAllItemsFrom Cart 
+			
+		 Customer customer = customerService.getCustomerByUsername(activeUser.getUsername());
+		
+		 cartItemService.deleteAllCartItems(customer.getCartId());
+      
+			 System.out.println("going to cart again");
+				
+        return "redirect:/cart"; 
 	}
-
+	
 }

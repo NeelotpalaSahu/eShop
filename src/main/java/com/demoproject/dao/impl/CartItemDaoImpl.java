@@ -72,7 +72,23 @@ public class CartItemDaoImpl implements CartItemDao {
 	}
 
 	public void deleteAllCartItems(int cartID) {
-		// TODO Auto-generated method stub
+		Session session=sessionFactory.getCurrentSession();
+		///String hql="delete from CartItem where cartID = " + "'" + cartID + "'";
+		try {
+		
+		List<CartItem> l=getMyCartItems(cartID);
+		for(CartItem c: l)
+		{
+			session.delete(c);
+		}
+//			session.createQuery(hql);
+		System.out.println("All cartItems deleted");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("failed to clear cart");
+			e.printStackTrace();
+		}
+		
 		
 	}
 
@@ -106,6 +122,17 @@ String hql="from CartItem where productID = " + "'" + productID + "'";
 		{
 			return list.get(0);
 		}
+	}
+
+	public int getTotalProducts(int cartID) {
+		Session session =sessionFactory.getCurrentSession();
+		Query query=session.createQuery("from CartItem where cartID = " + cartID);
+		List<CartItem> cartItem = query.list();
+		int count=0;
+		for(CartItem c:cartItem){
+			count++;
+		}
+		return count;
 	}
 
 	

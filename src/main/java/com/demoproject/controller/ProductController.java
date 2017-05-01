@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.demoproject.model.Product;
@@ -58,6 +57,7 @@ public class ProductController {
 		
 		m.addAttribute("allProd", allProd);
 		m.addAttribute("userProduct", "true");
+		m.addAttribute("totalproducts",HomeController.count);
 		return "index";
 	}
 	

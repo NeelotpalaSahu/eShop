@@ -44,6 +44,22 @@
 	<jsp:include page="cart.jsp"></jsp:include>
 </c:if>
 
+<c:if test="${billingAddresspages}">
+	<jsp:include page="billingAddress.jsp"></jsp:include>
+</c:if>
+
+<c:if test="${addNewBillingAddress}">
+	<jsp:include page="addNewBillingAddress.jsp"></jsp:include>
+</c:if>
+
+<c:if test="${shippingAddressPage}">
+	<jsp:include page="shippingAddress.jsp"></jsp:include>
+</c:if>
+
+<c:if test="${addNewShippingAddress}">
+	<jsp:include page="addNewShippingAddress.jsp"></jsp:include>
+</c:if>
+
 <c:if test="${payment}">
 	<jsp:include page="paymentDetails.jsp"></jsp:include>
 </c:if>
@@ -55,4 +71,9 @@
 <c:if test="${pagination}">
 	<jsp:include page="pagination.jsp"></jsp:include>
 </c:if>
+
+<c:if test="${receipt}">
+	<jsp:include page="receipt.jsp"></jsp:include>
+</c:if>
+
 <%@include file="/WEB-INF/views/template/footer.jsp" %>

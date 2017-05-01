@@ -22,4 +22,9 @@ public class CartServiceImpl implements CartService{
 		return cartDao.getCart(customerID);
 	}
 
+	public void deleteCartById(int cartId) {
+		//cartDao.deleteCartById(cartId);
+		
+	}
+
 }

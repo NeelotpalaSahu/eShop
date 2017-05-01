@@ -161,7 +161,11 @@ body {
 
 }
 
-.panel-heading:hover {
+.im
+{
+-webkit-transition: all 0.2s ease-in-out;
+}
+.im:hover {
     transform: scale(1.1);
 }
 
@@ -262,6 +266,22 @@ img.center {
 }
 
 .pagination a:hover:not(.active) {background-color: #ddd;}
+
+
+/* Absolute Center */
+.Absolute-Center {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.Absolute-Center.is-Responsive {
+  width: 50%; 
+  height: 60%;
+  min-width: 200px;
+  max-width: 400px;
+  padding: 40px;
+}
 
 </style>
 
@@ -368,19 +388,16 @@ function msg(){
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
-  
-    <div class="navbar-header">
-      <a class="navbar-brand" href="<c:url value="/" /> ">eShop</a>
-    </div>
     
    <ul class="nav navbar-nav">
-      <li class="active"><a href="<c:url value="/" /> "><span class="glyphicon glyphicon-home"></span>Home</a></li>
-       <li class="active"><a href="<c:url value="/userProduct" /> ">User Products</a></li>
+      <li class="active" style="font-size: 150%;"><a href="<c:url value="/" /> ">eShop</a></li>
+      <li ><a href="<c:url value="/" /> "><span class="glyphicon glyphicon-home"></span>Home</a></li>
+       <li ><a href="<c:url value="/userProduct" /> ">User Products</a></li>
     <c:if test="${pageContext.request.userPrincipal.name !=null}">
-      <li class="active"><a href="<c:url value="/admin/getAllProducts" /> ">All Products</a></li>      
-      <li class="active"><a href="<c:url value="/admin/addProduct" /> ">Add Product</a></li>
+      <li><a href="<c:url value="/admin/getAllProducts" /> ">All Products</a></li>      
+      <li ><a href="<c:url value="/admin/addProduct" /> ">Add Product</a></li>
     </c:if> 
-     <li class="active"><a href="<c:url value="/sendMailPage" /> ">Mail</a></li>   
+     <li><a href="<c:url value="/sendMailPage" /> ">Mail</a></li>   
 <!--      
      <li style="margin-left: 100px">
        <input class="fa fa-search" aria-hidden="true" type="text" name="search" placeholder="Search.."> 
@@ -396,7 +413,7 @@ function msg(){
          <li><a href="<c:url value="/login" /> "><span class="glyphicon glyphicon-log-in"></span>Log in</a></li>
        </c:if>      
        <c:if test="${pageContext.request.userPrincipal.name !=null }">
-	       <li><a href="<c:url value="/cart"></c:url>"><span class="glyphicon glyphicon-shopping-cart"></span>Cart ${totalItem}</a></li>
+	       <li><a href="<c:url value="/cart"></c:url>"><span class="glyphicon glyphicon-shopping-cart"></span>Cart ${totalproducts}</a></li>
          <li><a href="<c:url value="/j_spring_security_logout"></c:url>"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
 	   </c:if>
    </ul>

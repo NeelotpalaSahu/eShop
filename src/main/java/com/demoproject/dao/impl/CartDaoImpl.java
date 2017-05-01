@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.demoproject.dao.CartDao;
 import com.demoproject.model.Cart;
-import com.demoproject.model.CartItem;
 
 @Repository
 @Transactional
@@ -53,5 +52,21 @@ String hql="from Cart where customerID = " + "'" + customerID + "'";
 			return list.get(0);
 		}
 	}
+
+	public void deleteCartById(int cartId) {
+	/*	Session session=sessionFactory.getCurrentSession();
+		try {
+			session.delete(cartId);
+			session.flush();
+			
+		} catch (HibernateException e) {
+			System.out.println("error while deleting  cart in CartDaoImpl");
+			e.printStackTrace();
+			session.flush();
+			
+		}*/
+		
+	}
+
 
 }

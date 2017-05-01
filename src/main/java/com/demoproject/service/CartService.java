@@ -6,6 +6,8 @@ public interface CartService {
 
 	 void updateCart(Cart cart);
 	 
-		Cart getCart(int customerID);
+	 Cart getCart(int customerID);
+		
+	 void deleteCartById(int cartId);
 		
 }
