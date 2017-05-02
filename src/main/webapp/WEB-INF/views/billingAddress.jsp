@@ -22,10 +22,9 @@
  </div></div>
 
 <div class="control-group">
-   <a href="<c:url value="/shippingAddress" />"> 
-          <button type="submit" class="btn btn-primary"> Proceed for Shipping Address </button>
-       </a>
-<br><br>
-    <a href="<c:url value="/addNewBillingAddress" />">
+   <a href="<c:url value="/addNewBillingAddress" />">
       <button type="submit" class="btn btn-primary">Add New Billing Address </button></a>
+      
+   <a href="<c:url value="/shippingAddress" />"> 
+          <button type="submit" class="btn btn-primary"> Proceed for Shipping Address </button> </a> 
    </div>

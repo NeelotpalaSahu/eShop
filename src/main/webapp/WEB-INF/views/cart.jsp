@@ -89,7 +89,7 @@
                     	     <button type="submit" class="btn btn-danger">
                              <span class="glyphicon glyphicon-remove"></span>
                              Clear All Items 
-                             </button>
+                             </button> </a>
                         </td>
                         <td>   </td>
                         <td>   </td>

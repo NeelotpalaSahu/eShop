@@ -26,8 +26,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.demoproject.model.CartItem;
 import com.demoproject.model.Customer;
+import com.demoproject.model.Product;
 import com.demoproject.service.CartItemService;
 import com.demoproject.service.CustomerService;
+import com.demoproject.service.ProductService;
 
 
 @Controller
@@ -38,6 +40,9 @@ public class HomeController {
 	  
 	  @Autowired
 	  private CartItemService cartItemService;
+	  
+	  @Autowired
+	  private ProductService productService;
 	  
 	  Customer customer;
 	
@@ -134,6 +139,14 @@ public class HomeController {
     @RequestMapping ("/sendMailPage")
 	public String sendMail(Model m){
 		System.out.println("going on mail page");
+		
+		List<Product> allProd =productService.getAllProducts();
+        for (Product product : allProd) {
+			System.out.println("\nProduct name = "+product.getProductName());
+		}
+        
+        m.addAttribute("allProd", allProd);
+        
 		m.addAttribute("mail", "true");
 		m.addAttribute("status", "click on link below to send mail");
 	    
@@ -143,16 +156,19 @@ public class HomeController {
    
 		
 	    @RequestMapping("/sendMail")
-	    public  String sendFromGmail(Model model, @RequestParam("mailId") String mailId) {
+	    public  String sendFromGmail(Model model, @RequestParam("mailId") String mailId, @RequestParam("productName") String productName) {
 		
+	    	System.out.println("Got product "+productName+" to promote through mail in controller");
+	        
+	    	Product product=productService.getProductByName(productName);
+	    	
 	    	System.out.println("Inside sendFromGmail with emailId = "+mailId);
 	    	String from = "neelotpala92@gmail.com";
 		    String pass = "gangamansi";
 		    String[] to = {  mailId };
 		    String subject = "Trying to send email";
-		    String body = "Hi sir/m'am, \n\nTry shopping on eShop.";
+    	    String body = "Hi sir/m'am, \n\nWe have launched new product on eShop.\n\nProductName : "+product.getProductName()+"\nProductDeccription : "+product.getDescription()+"\nProductPrice : "+product.getPrice();                                       
 			
-	    	
 	    Properties prop=System.getProperties();
 		String host="smtp.gmail.com";
 		prop.put("mail.smtp.starttls.enable", "true");
@@ -179,7 +195,7 @@ public class HomeController {
         
         message.setSubject(subject);
         message.setText(body);
-
+        
         Transport transport = session.getTransport("smtp");
 
         transport.connect(host, from, pass);
@@ -201,6 +217,8 @@ public class HomeController {
 	    model.addAttribute("mail", true);
 	    return "index";
 	}
+	    
+	    
 	    public static int getTotalProducts(){
 	    	return count;
 	    }

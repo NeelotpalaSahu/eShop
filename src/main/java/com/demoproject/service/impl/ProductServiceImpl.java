@@ -37,4 +37,8 @@ public class ProductServiceImpl implements ProductService {
 		
 	}
 
+	public Product getProductByName(String productName) {
+		return productDao.getProductByName(productName);
+	}
+
 }

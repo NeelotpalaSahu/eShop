@@ -65,7 +65,7 @@
 </c:if>
 
 <c:if test="${mail}">
-	<jsp:include page="mail.jsp"></jsp:include>
+	<jsp:include page="promote.jsp"></jsp:include>
 </c:if>
 
 <c:if test="${pagination}">

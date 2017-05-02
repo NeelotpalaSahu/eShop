@@ -242,9 +242,9 @@ var readyInterval = setInterval(function() {
                             </div>
                         </div>
                      
-                        <div class="col-xs-12" style="padding-bottom:20px;">
-                             <a class="btn btn-success" onclick="msg()" href="<c:url value="/"/>" > Pay Now To Proceed Your Products</a> 
-                          </div> 
+                  <div class="col-xs-12" style="padding-bottom:20px;">
+                             <a class="btn btn-success" onclick="msg()" href="<c:url value="/receipt"/>" > Pay Now To Proceed Your Products</a> 
+                          </div>
                     
                         <div class="row" style="display:none;">
                             <div class="col-xs-12">

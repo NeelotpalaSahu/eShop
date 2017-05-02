@@ -77,18 +77,21 @@ body {
                             <td class="text-right"><strong>Rs.10.00</strong></td>
                           </tr>
                         <tr>
-                            <td>   </td>
+                            <td> <h4>Thank you for shopping on eShop</h4> 
+                                 <h5>Your order has been confirmed. We will get back to you soon.</h5> </td>
                             <td>   </td>
                             <td class="text-right">Grand Total: </td>
                             <td class="text-right text-danger"><strong>Rs.${grandtotal }</strong></td>
                         </tr>
                     </tbody>
                 </table>
+               
+  <div class="control-group"> 
+     <a href="<c:url value="/" />">
+      <button type="submit" class="btn btn-default"> Print Your Receipt </button></a>
+   </div>
                 </div>
             </div>
         </div>
-         <div class="control-group">
-              <a href="<c:url value="/paymentDetails" />">
-              <button type="submit" class="btn btn-primary"> Make payment </button></a>
-          </div>
+        
 <br><br>

@@ -170,8 +170,8 @@ public class BillingAddressController {
 
 		@RequestMapping("/paymentDetails")
 		public String checkout(Model model)
-		{
-			model.addAttribute("msg", "Wait for the demo on web-flow");
+		{		
+			model.addAttribute("msg", "going to payment method");
 			model.addAttribute("payment",true);
 			return "index";
 		}
@@ -181,6 +181,8 @@ public class BillingAddressController {
 		public String receipt(Model model,@AuthenticationPrincipal User activeUser){
 			System.out.println("going on receipt page");	
 			model.addAttribute("username", activeUser.getUsername());
+			
+			
 			model.addAttribute("receipt", true);
 			model.addAttribute("totalproducts",HomeController.count);
 			
@@ -225,6 +227,9 @@ public class BillingAddressController {
 					model.addAttribute("date",dateFormat.format(date)); //2016/11/16 12:08:43
 					System.out.println("Date on receipt is : "+dateFormat.format(date));
 
+					//clear cart
+					cartItemService.deleteAllCartItems(customer.getCartId());
+					
 					
 			return "index";
 		}

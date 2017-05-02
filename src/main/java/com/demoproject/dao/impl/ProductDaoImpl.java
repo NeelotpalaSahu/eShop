@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.demoproject.dao.ProductDao;
+import com.demoproject.model.Customer;
 import com.demoproject.model.Product;
 
 @Repository
@@ -68,6 +69,13 @@ public class ProductDaoImpl implements ProductDao {
 			e.printStackTrace();
 			session.flush();
 			}
+	}
+	public Product getProductByName(String productName) {
+		 Session session = sessionFactory.getCurrentSession();
+	        Query query = session.createQuery("from Product where productName = ?");
+	        query.setString(0, productName);
+
+	        return (Product) query.uniqueResult();
 	}
 
 }

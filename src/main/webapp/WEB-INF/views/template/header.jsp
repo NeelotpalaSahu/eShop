@@ -169,6 +169,10 @@ body {
     transform: scale(1.1);
 }
 
+.panel-home:hover {
+    transform: scale(1.1);
+}
+
 .panel-white {
     background-color: #fff;
 }
@@ -397,11 +401,7 @@ function msg(){
       <li><a href="<c:url value="/admin/getAllProducts" /> ">All Products</a></li>      
       <li ><a href="<c:url value="/admin/addProduct" /> ">Add Product</a></li>
     </c:if> 
-     <li><a href="<c:url value="/sendMailPage" /> ">Mail</a></li>   
-<!--      
-     <li style="margin-left: 100px">
-       <input class="fa fa-search" aria-hidden="true" type="text" name="search" placeholder="Search.."> 
-      </li> -->
+     <li><a href="<c:url value="/sendMailPage" /> ">Promote</a></li>   
    </ul>
     
    <ul class="nav navbar-nav navbar-right">
